@@ -12,10 +12,58 @@
             </div>
 
             <div class="uk-form-row">
+                <label for="form-view" class="uk-form-label">{{ 'Layout' | trans }}</label>
+                <div class="uk-form-controls">
+                    <select id="form-view" v-model="widget.data.view" class="uk-form-width-medium">
+                        <option value="list">{{ 'List' | trans }}</option>
+                        <option value="grid">{{ 'Grid' | trans }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="uk-form-row">
                 <label for="form-count" class="uk-form-label">{{ 'Count' | trans }}</label>
                 <div class="uk-form-controls">
                     <input id="form-count" class="uk-form-width-small uk-text-right" type="number" name="title"
                            v-model="widget.data.count" min="0" number>
+                </div>
+            </div>
+
+            <div class="uk-form-row">
+                <label for="form-show_image" class="uk-form-label">{{ 'Show image' | trans }}</label>
+                <div class="uk-form-controls">
+                    <select id="form-show_image" v-model="widget.data.show_image" class="uk-form-width-medium">
+                        <option value="">{{ 'No image' | trans }}</option>
+                        <option value="side">{{ 'Side' | trans }}</option>
+                        <option value="top">{{ 'Top' | trans }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div v-show="widget.data.view == 'grid'" class="uk-form-row">
+                <label for="form-cols" class="uk-form-label">{{ 'Columns' | trans }}</label>
+                <div class="uk-form-controls">
+                    <select id="form-cols" v-model="widget.data.cols" class="uk-form-width-medium">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+            </div>
+
+            <div v-show="widget.data.view == 'grid'" class="uk-form-row">
+                <label for="form-panel_class" class="uk-form-label">{{ 'Panel' | trans }}</label>
+                <div class="uk-form-controls">
+                    <select id="form-panel_class" v-model="widget.data.panel_class" class="uk-form-width-medium">
+                        <option value="">Blank</option>
+                        <option value="uk-panel-box">{{ 'Panel box' | trans }}</option>
+                        <option value="uk-panel-space">{{ 'Panel space' | trans }}</option>
+                        <option value="uk-panel-box uk-panel-box-primary">{{ 'Panel Primary' | trans }}</option>
+                        <option value="uk-panel-box uk-panel-box-secondary">{{ 'Panel Secondary' | trans }}</option>
+                    </select>
                 </div>
             </div>
 
@@ -53,7 +101,11 @@
         created: function () {
             this.$options.partials = this.$parent.$options.partials;
             this.$set('widget.data', _.merge({
+                view: 'list',
                 count: 5,
+                show_image: 'side',
+                cols: 3,
+                panel_class: '',
                 content_length: 0
             }, this.widget.data));
         }

@@ -30,7 +30,9 @@ return [
 				$post->content = $app['content']->applyPlugins($post->content, ['post' => $post, 'markdown' => true]);
 			}
 		}
-		return $app['view']('bixie/blogposts/widgets/blogposts.php', compact('widget', 'posts'));
+		$view = $widget->get('view', 'list');
+
+		return $app['view']('bixie/blogposts/widgets/'.$view.'.php', compact('widget', 'posts', 'items'));
 
 	}
 
