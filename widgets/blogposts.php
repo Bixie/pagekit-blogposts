@@ -32,7 +32,7 @@ return [
 		}
 		$view = $widget->get('view', 'list');
 
-		return $app['view']('bixie/blogposts/widgets/'.$view.'.php', compact('widget', 'posts', 'items'));
+		return $app['view']('bixie/blogposts/widgets/'.$view.'.php', compact('widget', 'posts'));
 
 	}
 
