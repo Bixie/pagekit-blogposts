@@ -75,6 +75,23 @@
                 </div>
             </div>
 
+            <div class="uk-form-row">
+                <label for="form-show_bloglink" class="uk-form-label">{{ 'Show link to blog' | trans }}</label>
+                <div class="uk-form-controls">
+                    <select id="form-show_bloglink" v-model="widget.data.show_bloglink" class="uk-form-width-medium" number>
+                        <option value="1">{{ 'Yes' | trans }}</option>
+                        <option value="0">{{ 'No' | trans }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div v-show="widget.data.show_bloglink == 1" class="uk-form-row">
+                <label for="form-bloglink_text" class="uk-form-label">{{ 'Link text' | trans }}</label>
+                <div class="uk-form-controls">
+                    <input id="form-bloglink_text" class="uk-form-width-large" type="text" name="title" v-model="widget.data.bloglink_text">
+                </div>
+            </div>
+
         </div>
         <div class="pk-width-sidebar pk-width-sidebar-large">
 
@@ -106,6 +123,8 @@
                 show_image: 'side',
                 cols: 3,
                 panel_class: '',
+                show_bloglink: 1,
+                bloglink_text: 'All blog posts',
                 content_length: 0
             }, this.widget.data));
         }

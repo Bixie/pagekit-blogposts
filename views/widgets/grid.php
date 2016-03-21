@@ -38,4 +38,12 @@
 		</div>
 	<?php endif; ?>
 
+	<?php if ($widget->get('show_bloglink')) : ?>
+		<div class="uk-margin-top uk-text-right">
+			<a href="<?= $view->url('@blog') ?>"><?= $widget->get('bloglink_text', __('All blog posts')) ?>
+				<i class="uk-icon-angle-double-right uk-margin-small-left"></i>
+			</a>
+		</div>
+	<?php endif; ?>
+
 </div>
