@@ -1,0 +1,19 @@
+{
+  "name": "bixie/blogposts",
+  "module": "bixie/blogposts",
+  "type": "pagekit-extension",
+  "version": "0.0.9",
+  "title": "Bixie Blogposts Widget",
+  "description": "Show the latest blog posts in a widget.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bixie",
+      "email": "info@bixie.org",
+      "homepage": "http://www.bixie.org"
+    }
+  ],
+  "extra": {
+    "icon": "icon.svg"
+  }
+}
