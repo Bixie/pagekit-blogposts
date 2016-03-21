@@ -5,6 +5,8 @@
  * @var \Pagekit\Blog\Model\Post[] $posts
  */
 
+use Bixie\Blogposts\StringHelper;
+
 ?>
 
 <div id="blogposts">
@@ -23,7 +25,7 @@
 							<h1 class="uk-h2 uk-text-special uk-margin-small-bottom">
 								<a href="<?= $view->url('@blog/id', ['id' => $post->id]) ?>"><?= $post->title ?></a></h1>
 							<div class="uk-text-secondary uk-text-bold">
-								<?= $app['string.truncate'](($post->excerpt ? $post->excerpt : $post->content), $widget->get('content_length')) ?>
+								<?= StringHelper::truncate(($post->excerpt ? $post->excerpt : $post->content), $widget->get('content_length')) ?>
 							</div>
 						</div>
 					</article>

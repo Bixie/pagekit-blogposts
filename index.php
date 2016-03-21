@@ -6,9 +6,11 @@ return [
 
 	'type' => 'extension',
 
-	'main' => function ($app) {
+	'autoload' => [
 
-	},
+		'Bixie\\Blogposts\\' => 'src'
+
+	],
 
 	'widgets' => [
 
