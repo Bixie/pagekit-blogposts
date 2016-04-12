@@ -31,7 +31,10 @@ return [
 			}
 		}
 		$view = $widget->get('view', 'list');
-
+		
+		//include blog script for date formatting;
+		$app['view']->script('post', 'blog:app/bundle/post.js', 'vue');
+		
 		return $app['view']('bixie/blogposts/widgets/'.$view.'.php', compact('widget', 'posts'));
 
 	}
