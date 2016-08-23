@@ -71,7 +71,7 @@
                 <label for="form-content_length" class="uk-form-label">{{ 'Content length' | trans }}</label>
                 <div class="uk-form-controls">
                     <input id="form-content_length" class="uk-form-width-small uk-text-right" type="number" name="title"
-                           v-model="widget.data.content_length" min="0" number>
+                           v-model="widget.data.content_length" min="-1" number>
                 </div>
             </div>
 
