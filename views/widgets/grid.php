@@ -34,9 +34,11 @@
 										<?= __('Written by %name% on %date%', ['%name%' => $post->user->name, '%date%' => '<time datetime="'.$post->date->format(\DateTime::ATOM).'" v-cloak>{{ "'.$post->date->format(\DateTime::ATOM).'" | date "longDate" }}</time>' ]) ?>
 									</p>
 								<?php endif; ?>
-								<p>
-									<?= $app['string.truncate'](($post->excerpt ? $post->excerpt : $post->content), $widget->get('content_length')) ?>
-								</p>
+                                <?php if ($widget->get('show_content')) : ?>
+                                    <p>
+                                        <?= $app['string.truncate'](($post->excerpt ? $post->excerpt : $post->content), $widget->get('content_length')) ?>
+                                    </p>
+                                <?php endif; ?>
 								<?php if ($widget->get('show_readmorelink')) : ?>
 									<div class="uk-text-right">
 										<a href="<?= $url ?>"><?= $widget->get('readmore_text', __('Read more')) ?></a>

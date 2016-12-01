@@ -68,6 +68,16 @@
             </div>
 
             <div class="uk-form-row">
+                <label for="form-show_content" class="uk-form-label">{{ 'Show content' | trans }}</label>
+                <div class="uk-form-controls">
+                    <select id="form-show_content" v-model="widget.data.show_content" class="uk-form-width-medium" number>
+                        <option value="1">{{ 'Yes' | trans }}</option>
+                        <option value="0">{{ 'No' | trans }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div v-show="widget.data.show_content" class="uk-form-row">
                 <label for="form-content_length" class="uk-form-label">{{ 'Content length' | trans }}</label>
                 <div class="uk-form-controls">
                     <input id="form-content_length" class="uk-form-width-small uk-text-right" type="number" name="title"
@@ -142,7 +152,7 @@
 
         props: ['widget', 'config', 'form'],
 
-        created: function () {
+        created() {
             this.$options.partials = this.$parent.$options.partials;
             this.$set('widget.data', _.merge({
                 view: 'list',
@@ -155,6 +165,7 @@
                 readmore_text: 'Read more',
                 show_bloglink: 1,
                 bloglink_text: 'All blog posts',
+                show_content: 1,
                 content_length: 0
             }, this.widget.data));
         }
