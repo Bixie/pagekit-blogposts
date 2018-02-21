@@ -25,8 +25,8 @@
 						</div>
 						<?php endif ?>
 						<div class="<?= $grid2 ?><?= $hasImage ? ' uk-margin-top-small' : '' ?>">
-							<h1 class="uk-h2">
-								<a href="<?= $url ?>"><?= $post->title ?></a></h1>
+							<h2 class="uk-h2">
+								<a href="<?= $url ?>"><?= $post->title ?></a></h2>
 							<?php if ($widget->get('show_meta')) : ?>
 								<p class="uk-article-meta uk-margin-remove">
 									<?= __('Written by %name% on %date%', ['%name%' => $post->user->name, '%date%' => '<time datetime="'.$post->date->format(\DateTime::ATOM).'" v-cloak>{{ "'.$post->date->format(\DateTime::ATOM).'" | date "longDate" }}</time>' ]) ?>
